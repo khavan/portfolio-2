@@ -1,0 +1,38 @@
+/* Variables */
+
+// Animation Durations
+@anim-dur: 175ms;
+@anim-dur-large: 200ms;
+@anim-dur-enter: 185ms;
+@anim-dur-leave: 165ms;
+
+@media screen and (max-width: 600px) {
+    @anim-dur: 300ms;
+    @anim-dur-large: 375ms;
+    @anim-dur-enter: 225ms;
+    @anim-dur-leave: 195ms;
+}
+
+@media screen and (max-width: 1024px) {
+    @anim-dur: 300ms * 130%;
+    @anim-dur-large: 375ms * 130%;
+    @anim-dur-enter: 225ms * 130%;
+    @anim-dur-leave: 195ms * 130%;
+}
+
+// Animation Easing
+@anim-ease: cubic-bezier(0.4, 0.0, 0.2, 1);
+@anim-ease-enter: cubic-bezier(0.0, 0.0, 0.2, 1);
+@anim-ease-leave: cubic-bezier(0.4, 0.0, 1, 1);
+@anim-ease-sharp: cubic-bezier(0.4, 0.0, 0.6, 1);
+
+// Colors
+@shadow: #2f394d;
+@midtone: #56666b;
+@highlight: #880044;
+/* End Variables */
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
