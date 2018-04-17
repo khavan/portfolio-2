@@ -25,11 +25,11 @@ module.exports = merge(common, {
                     use: [
                         {
                             loader: 'css-loader',
-                            options: {
-                                modules: true,
-                                camelCase: true,
-                                sourceMap: true
-                            }
+			    options: {
+				modules: true,
+			   	camelCase: true,
+				sourceMap: true
+			    }
                         },
                         {
                             loader: 'postcss-loader',
