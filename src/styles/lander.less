@@ -1,0 +1,76 @@
+#lander {
+	position: relative;
+	
+	height: 100vh;
+	font-family: 'Montserrat';
+	
+	h1, h2 {
+		font-size: 36px / 16px * 1em;
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 680 / 1000 * 1em;
+	}
+	h1 {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+	h2 {
+		color: #aaa;
+		font-weight: 500;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
+
+.text-container {
+	position: absolute;
+	left: 50%;
+	top: 48%;
+	transform: translate(-50%, -50%);
+	display: inline;
+	margin: 0 auto;
+}
+
+.down-arrow-container {
+	position: absolute;
+	display: block;
+
+	margin: 0 auto;
+	margin-bottom: 1em;
+	width: 1em;
+	height: 1em;
+	overflow: hidden;
+
+	left: 0; right: 0;
+	bottom: 0;
+	font-size: 2em;
+	
+	.down-arrow-wrapper {
+		position: relative;
+		svg {
+			display: block;
+			position: absolute;
+			animation-name: downArrow;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+		}
+	}
+}
+
+@keyframes downArrow {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+	50% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+}
+
