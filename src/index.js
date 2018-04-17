@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 
 import Styles from './styles/styles.less';
 
+import { Lander } from './components/Lander.js';
+
 function Application(props) {
     return (
-        <div>
-            <p>Lorem ipsum dorem sit amet</p>
-        </div>
+    	<Lander />
     );
 }
 
