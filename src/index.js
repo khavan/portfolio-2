@@ -4,14 +4,41 @@ import ReactDOM from 'react-dom';
 import Styles from './styles/styles.less';
 
 import { Lander } from './components/Lander.js';
+import { MainFeature } from './components/MainFeature.js';
 
-function Application(props) {
-    return (
-    	<Lander />
-    );
+class Application extends React.Component {
+	constructor(props) {
+		super(props);
+		
+		this.state = {
+			landerVisible: true,
+		}
+
+		this.handleScroll = this.handleScroll.bind(this);
+	}
+
+	componentDidMount() {
+		window.addEventListener('mousescroll', this.handleScroll);
+		window.addEventListener('DOMMouseScroll', this.handleScroll);
+	}
+
+	handleScroll() {
+		this.setState({
+			landerVisible: false,
+		});
+	}
+	
+	render() {
+		return (
+			<div>
+				<Lander visible={this.state.landerVisible}/>
+				<MainFeature visible={!this.state.landerVisible} />
+			</div>
+		);
+	}
 }
 
 ReactDOM.render(
-    <Application />,
-    document.getElementById('root')
+	<Application />,
+	document.getElementById('root')
 );

@@ -1,0 +1,75 @@
+#main-feature {
+	width: 1200px / 1920px * 100%;
+	height: 75vh;
+	opacity: 0;
+	visibility: hidden;
+	
+	margin: 12.5vh auto;
+	
+	font-family: "Raleway", sans-serif;
+
+	h1 {
+		font-size: 72px / 16px * 1em;
+		color: white;
+		font-weight: 700;
+		text-align: center;
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+
+	p {
+		font-size: 18px / 16px * 1em;
+		color: white;
+		font-weight: 100;
+		text-align: center;
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.slideshow {
+	width: 100%;
+	height: 100%;
+
+	align-items: center;
+}
+
+.slide-text {
+	position: absolute;
+	top: 0; bottom: 0; left: 0; right: 0;
+
+	width: 75%;
+	margin: 0 auto;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.slide {
+	width: 100%;
+	height: 100%;
+	background-color: #acacac;
+	background-size: contain;
+	background-attachment: center;
+}
+
+.visible {
+	animation-name: mainFeatureEnter;
+	animation-fill-mode: forwards;
+	animation-delay: @anim-dur-leave;
+	animation-duration: @anim-dur-large;
+	animation-timing-function: @anim-ease-enter;
+}
+
+@keyframes mainFeatureEnter {
+	from {
+		opacity: 0;
+		visibility: hidden;
+	}
+	to {
+		opacity: 1;
+		visibility: visible;
+	}
+}
