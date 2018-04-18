@@ -28,9 +28,16 @@
 	position: absolute;
 	left: 50%;
 	top: 48%;
-	transform: translate(-50%, -50%);
 	display: inline;
 	margin: 0 auto;
+	
+	transform: translate(-50%, -50%);
+
+	
+	animation-name: enter;
+	//animation-delay: 2000ms;
+	animation-duration: 2000ms;
+	animation-timing-function: @anim-ease-enter;
 }
 
 .down-arrow-container {
@@ -41,8 +48,6 @@
 	margin-bottom: 1em;
 	width: 1em;
 	height: 1em;
-	overflow: hidden;
-
 	left: 0; right: 0;
 	bottom: 0;
 	font-size: 2em;
@@ -53,8 +58,9 @@
 			display: block;
 			position: absolute;
 			animation-name: downArrow;
-			animation-duration: 2s;
+			animation-duration: 1.5s;
 			animation-iteration-count: infinite;
+			animation-timing-function: @anim-ease;
 		}
 	}
 }
@@ -62,7 +68,7 @@
 @keyframes downArrow {
 	0% {
 		opacity: 0;
-		transform: translateY(-50px);
+		transform: translateY(-25px);
 	}
 	50% {
 		opacity: 1;
@@ -70,7 +76,6 @@
 	}
 	100% {
 		opacity: 0;
-		transform: translateY(50px);
+		transform: translateY(25px);
 	}
 }
-
