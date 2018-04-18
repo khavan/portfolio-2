@@ -1,9 +1,14 @@
 #lander {
-	position: relative;
+	position: absolute;
+	z-index: 1000;
+	visibility: visible;
 	
+	top: 0; bottom: 0; left: 0; right: 0;
+
 	height: 100vh;
 	font-family: 'Montserrat';
 	
+	//margin-bottom: 10em;
 	h1, h2 {
 		font-size: 36px / 16px * 1em;
 		font-weight: 800;
@@ -35,7 +40,6 @@
 
 	
 	animation-name: enter;
-	//animation-delay: 2000ms;
 	animation-duration: 2000ms;
 	animation-timing-function: @anim-ease-enter;
 }
@@ -65,6 +69,17 @@
 	}
 }
 
+.last-letter {
+	letter-spacing: 0;
+}
+
+.exit {
+	animation-name: leave;
+	animation-duration: @anim-dur-leave;
+	animation-fill-mode: forwards;
+	animation-timing-function: @anim-ease-leave;
+}
+
 @keyframes downArrow {
 	0% {
 		opacity: 0;
@@ -77,5 +92,30 @@
 	100% {
 		opacity: 0;
 		transform: translateY(25px);
+	}
+}
+
+
+@keyframes enter {
+	from {
+		opacity: 0;
+		transform: translate(-50%, -50%) translateY(-25px);
+	}
+	to {
+		opacity: 1;
+		transform: translate(-50%, -50%) translateY(0px);
+	}
+}
+
+@keyframes leave {
+	from {
+		opacity: 1;
+		transform: translateY(0px);
+		visibility: visible;
+	}
+	to {
+		opacity: 0;
+		transform: translateY(-25px);
+		visibility: hidden;
 	}
 }
