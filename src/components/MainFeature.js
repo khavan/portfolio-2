@@ -12,20 +12,23 @@ class MainFeature extends Component {
 			images: [
 				{
 					src: 'url(https://placeimg.com/1000/1000/arch)',
+					alt: '#553a41',
 					href: '#',
-					title: 'John Doe & Co.',
+					title: 'John Doe Construction',
 					desc: 'Lorem ispum dolor it amet, consectetur adipiscing elit.'
 				},
 				{
 					src: 'url(https://placeimg.com/1000/1000/nature)',
+					alt: '#32908f',
 					href: '#',
-					title: 'John Doe & Co.',
+					title: 'The Nature Resort',
 					desc: 'Lorem ispum dolor it amet, consectetur adipiscing elit.'
 				},	
 				{
-					src: 'url(https://placeimg.com/1000/1000/nature)',
+					src: 'url(https://placeimg.com/1000/1000/tech)',
+					alt: '#26c485',
 					href: '#',
-					title: 'John Doe & Co.',
+					title: 'Innovative Solutions',
 					desc: 'Lorem ispum dolor it amet, consectetur adipiscing elit.'
 				}
 			],
@@ -53,7 +56,8 @@ class MainFeature extends Component {
 			var translateYAmount = i * -100;
 			var inlStyles = {
 				transform: `translate(${translateXAmount}%, ${translateYAmount}%)`,
-				background: imageObj.src
+				backgroundImage: imageObj.src,
+				backgroundColor: imageObj.alt
 			};
 			slides.push(
 				<div key={i} style={ inlStyles } className={ Styles.slide } onClick={ (e) => { this.handleControllerClick(1) } }>
