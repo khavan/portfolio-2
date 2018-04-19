@@ -34,12 +34,35 @@
 
 /* Keyframes */
 
-/* End Keyfraems */
+/* End Keyframes */
+
+img {
+	max-width: 100%;
+	user-select: none;
+}
+
 body {
 	margin: 0;
 	box-sizing: border-box;
+
 }
 
+button {
+	cursor: pointer;
+	margin-top: 2em;
+	font-size: 1em;
+	padding: .75em 2em;
+	color: white;
+	background: transparent;
+	border: 1px solid white;
+	border-radius: 50px;
+	width: 7em;
+	transition: @anim-dur width @anim-ease;
+}
+
+button:hover {
+	width: 10em;
+}
 /* Imports */
 
 @import './lander.less';
