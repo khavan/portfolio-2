@@ -31,7 +31,7 @@ class Application extends React.Component {
 	render() {
 		return (
 			<div>
-				<Lander visible={this.state.landerVisible}/>
+				<Lander visible={this.state.landerVisible} handleClick={ this.handleScroll }/>
 				<MainFeature visible={!this.state.landerVisible} />
 			</div>
 		);

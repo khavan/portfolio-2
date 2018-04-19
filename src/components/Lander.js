@@ -11,6 +11,7 @@ class Lander extends React.Component {
 					<h2>front en<span className={ Styles.lastLetter }>d</span><br />develope<span className={ Styles.lastLetter }>r</span></h2>
 					<h1>khavan<br />guneratne</h1>
 					<h2>a regula<span className={ Styles.lastLetter }>r</span><br />code frea<span className={ Styles.lastLetter }>k</span></h2>
+					<button onClick={() => { this.props.handleClick() }}>enter</button>
 				</div>
 				<div className={ Styles.downArrowContainer }>
 					<div className={ Styles.downArrowWrapper }>

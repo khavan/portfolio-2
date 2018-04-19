@@ -107,7 +107,7 @@ class MainFeature extends Component {
 	render() {
 		return (
 			<div id={ Styles.mainFeature } className={ this.props.visible ? Styles.visible : '' }>
-				<div className={ Styles.slideshow }>
+				<div className={ Styles.slideshow } onClick={ () => this.handleControllerClick(1) }>
 					<div id={ Styles.logo }>
 						<object data={ Logo } className={ (this.props.visible ? Styles.logoShow : '') }/>
 					</div>
@@ -121,7 +121,7 @@ class MainFeature extends Component {
 							<i className="fas fa-chevron-right"></i>
 						</div>
 					</div>
-					<div className={ Styles.dotContainer } onClick={ () => { this.handleControllerClick(1) } } >
+					<div className={ Styles.dotContainer } >
 						{ this.renderDots() }
 					</div>
 					<div className={ Styles.slideContainer }>
