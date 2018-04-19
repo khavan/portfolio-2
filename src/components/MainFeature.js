@@ -13,21 +13,21 @@ class MainFeature extends Component {
 				{
 					src: 'url(https://placeimg.com/1000/1000/arch)',
 					alt: '#553a41',
-					href: '#',
+					href: '',
 					title: 'John Doe Construction',
 					desc: 'Lorem ispum dolor it amet, consectetur adipiscing elit.'
 				},
 				{
 					src: 'url(https://placeimg.com/1000/1000/nature)',
 					alt: '#32908f',
-					href: '#',
+					href: '',
 					title: 'The Nature Resort',
 					desc: 'Lorem ispum dolor it amet, consectetur adipiscing elit.'
 				},	
 				{
 					src: 'url(https://placeimg.com/1000/1000/tech)',
 					alt: '#26c485',
-					href: '#',
+					href: '',
 					title: 'Innovative Solutions',
 					desc: 'Lorem ispum dolor it amet, consectetur adipiscing elit.'
 				}
@@ -60,11 +60,12 @@ class MainFeature extends Component {
 				backgroundColor: imageObj.alt
 			};
 			slides.push(
-				<div key={i} style={ inlStyles } className={ Styles.slide } onClick={ (e) => { this.handleControllerClick(1) } }>
+				<div key={i} style={ inlStyles } className={ Styles.slide } onClick={ (e) => { this.handleControllerClick(1); } }>
 					<div className={ Styles.slideText }>
 						<h1>{ imageObj.title }</h1>
 						<p>{ imageObj.desc }</p>
-						<button onClick={ () => { window.location.href = imageObj.href } }>view</button>
+						<button style={ imageObj.href ? '' : { display: 'none' } }
+						onClick={ () => { window.location.href = (imageObj.href || '#') } }>view</button>
 					</div>
 				</div>
 			);
