@@ -30,8 +30,8 @@ class MainFeature extends Component {
 				}
 			],
 			canShift: true
-	
 		}
+
 	}
 
 	componentDidMount() {
@@ -56,7 +56,7 @@ class MainFeature extends Component {
 				background: imageObj.src
 			};
 			slides.push(
-				<div key={i} style={ inlStyles } className={ Styles.slide } >
+				<div key={i} style={ inlStyles } className={ Styles.slide } onClick={ (e) => { this.handleControllerClick(1) } }>
 					<div className={ Styles.slideText }>
 						<h1>{ imageObj.title }</h1>
 						<p>{ imageObj.desc }</p>
@@ -107,7 +107,7 @@ class MainFeature extends Component {
 	render() {
 		return (
 			<div id={ Styles.mainFeature } className={ this.props.visible ? Styles.visible : '' }>
-				<div className={ Styles.slideshow } onClick={ () => this.handleControllerClick(1) }>
+				<div className={ Styles.slideshow } >
 					<div id={ Styles.logo }>
 						<object data={ Logo } className={ (this.props.visible ? Styles.logoShow : '') }/>
 					</div>
@@ -124,7 +124,7 @@ class MainFeature extends Component {
 					<div className={ Styles.dotContainer } >
 						{ this.renderDots() }
 					</div>
-					<div className={ Styles.slideContainer }>
+					<div className={ Styles.slideContainer } >
 						{ this.renderSlides() } 
 					</div>
 				</div>
