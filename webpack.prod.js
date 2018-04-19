@@ -2,15 +2,11 @@ const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
 const ExtractPlugin = require('extract-text-webpack-plugin');
-const MinifyPlugin = require('babel-minify-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = merge(common, {
     mode: 'production',
     plugins: [
-        new MinifyPlugin(pluginOpts={
-            exclude: /node_modules/
-        }),
         new ExtractPlugin(
             'asset/styles/[hash].css'
         )
@@ -32,10 +28,12 @@ module.exports = merge(common, {
                             }
                         },
                         {
-                            loader: 'postcss-loader',
-                            plugins: () => autoprefixer({
-                                browsers: ['last 3 versions', '> 1%']  
-                            })
+				loader: 'postcss-loader',
+				options: {
+				    plugins: () => autoprefixer({
+					browsers: ['last 3 versions', '> 1%']  
+				    })
+				}
                         },
                         {
                             loader: 'less-loader'
