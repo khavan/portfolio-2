@@ -20,6 +20,8 @@ class Application extends React.Component {
 	componentDidMount() {
 		window.addEventListener('mousescroll', this.handleScroll);
 		window.addEventListener('DOMMouseScroll', this.handleScroll);
+
+		setTimeout(this.handleScroll, 4500);
 	}
 
 	handleScroll() {
