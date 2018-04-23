@@ -52,13 +52,11 @@ class MainFeature extends Component {
 		for (var i = 0; i < this.state.images.length; i++) {
 			var imageObj = this.state.images[i];
 
-			var translateXAmount = (i - this.state.currentImage) * 100;
-			var translateYAmount = i * -100;
 			var inlStyles = {
-				transform: `translate(${translateXAmount}%, ${translateYAmount}%)`,
 				backgroundImage: imageObj.src,
 				backgroundColor: imageObj.alt
 			};
+
 			slides.push(
 				<div key={i} style={ inlStyles } className={ Styles.slide } onClick={ (e) => { this.handleControllerClick(1); } }>
 					<div className={ Styles.slideText }>
@@ -110,9 +108,14 @@ class MainFeature extends Component {
 	}
 
 	render() {
+		var transformXAmount = 100 * this.state.currentImage;
+		var styles = {
+			'transform': `translateX(-${transformXAmount}%)`
+		}
+		
 		return (
 			<div id={ Styles.mainFeature } className={ this.props.visible ? Styles.visible : '' }>
-				<div className={ Styles.slideshow } >
+				<div className={ Styles.slideshow }>
 					<div id={ Styles.logo }>
 						<object data={ Logo } className={ (this.props.visible ? Styles.logoShow : '') }/>
 					</div>
@@ -129,7 +132,7 @@ class MainFeature extends Component {
 					<div className={ Styles.dotContainer } >
 						{ this.renderDots() }
 					</div>
-					<div className={ Styles.slideContainer } >
+					<div className={ Styles.slideContainer } style={ styles } >
 						{ this.renderSlides() } 
 					</div>
 				</div>
