@@ -32,8 +32,12 @@ class MainFeature extends Component {
 					desc: 'Lorem ispum dolor it amet, consectetur adipiscing elit.'
 				}
 			],
-			canShift: true
+			canShift: true,
+			start: 0,
+			x: 0
 		}
+
+		this.pollMouse = this.pollMouse.bind(this);
 
 	}
 
@@ -58,7 +62,7 @@ class MainFeature extends Component {
 			};
 
 			slides.push(
-				<div key={i} style={ inlStyles } className={ Styles.slide } onClick={ (e) => { this.handleControllerClick(1); } }>
+				<div key={i} style={ inlStyles } className={ Styles.slide } >
 					<div className={ Styles.slideText }>
 						<h1>{ imageObj.title }</h1>
 						<p>{ imageObj.desc }</p>
@@ -107,14 +111,33 @@ class MainFeature extends Component {
 
 	}
 
+	pollMouse(e) {
+		this.setState({x: e.pageX});
+	}
+
+	handleMouseUp(e) {
+		var direction = -(this.state.x - this.state.start);
+		var center = (window.innerWidth / 2);
+		var u = center + 50;
+		var l = center - 50;
+		if (direction > u || direction < l) {
+			if (direction > 0) {
+				this.handleControllerClick(1);
+			} else {
+				this.handleControllerClick(-1);
+			}
+		}	
+		this.setState({x: 0});
+	}
+
 	render() {
-		var transformXAmount = 100 * this.state.currentImage;
+		var transformXAmount = (100 * this.state.currentImage);
 		var styles = {
 			'transform': `translateX(-${transformXAmount}%)`
 		}
 		
 		return (
-			<div id={ Styles.mainFeature } className={ this.props.visible ? Styles.visible : '' }>
+			<div id={ Styles.mainFeature } className={ this.props.visible ? Styles.visible : '' } >
 				<div className={ Styles.slideshow }>
 					<div id={ Styles.logo }>
 						<object data={ Logo } className={ (this.props.visible ? Styles.logoShow : '') }/>
@@ -132,7 +155,7 @@ class MainFeature extends Component {
 					<div className={ Styles.dotContainer } >
 						{ this.renderDots() }
 					</div>
-					<div className={ Styles.slideContainer } style={ styles } >
+					<div className={ Styles.slideContainer } style={ styles } onMouseDown={ (e) => { document.addEventListener('mousemove', this.pollMouse); this.setState({start: e.pageX}) }} onMouseUp={ () => { document.removeEventListener('mousemove', this.pollMouse); this.handleMouseUp(); } }> 
 						{ this.renderSlides() } 
 					</div>
 				</div>
