@@ -137,7 +137,7 @@ class MainFeature extends Component {
 		}
 		
 		return (
-			<div id={ Styles.mainFeature } className={ this.props.visible ? Styles.visible : '' } >
+			<div id={ Styles.mainFeature } className={ this.props.visible ? Styles.visible : '' } onClick={ () => this.handleControllerClick(1) }>
 				<div className={ Styles.slideshow }>
 					<div id={ Styles.logo }>
 						<object data={ Logo } className={ (this.props.visible ? Styles.logoShow : '') }/>
@@ -155,7 +155,8 @@ class MainFeature extends Component {
 					<div className={ Styles.dotContainer } >
 						{ this.renderDots() }
 					</div>
-					<div className={ Styles.slideContainer } style={ styles } onMouseDown={ (e) => { document.addEventListener('mousemove', this.pollMouse); this.setState({start: e.pageX}) }} onMouseUp={ () => { document.removeEventListener('mousemove', this.pollMouse); this.handleMouseUp(); } }> 
+					<div className={ Styles.slideContainer } style={ styles } onMouseDown={ (e) => { document.addEventListener('mousemove', this.pollMouse); this.setState({start: e.pageX}) }} onMouseUp={ () => { document.removeEventListener('mousemove', this.pollMouse); this.handleMouseUp(); }} 
+						onTouchStart={ (e) => { document.addEventListener('mousemove', this.pollMouse); this.setState({start: e.pageX}) }} onTouchEnd={ () => { document.removeEventListener('mousemove', this.pollMouse); this.handleMouseUp(); } }>
 						{ this.renderSlides() } 
 					</div>
 				</div>
